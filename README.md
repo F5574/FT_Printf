@@ -1,2 +1,2 @@
 # FT_Printf
-the printf project from 42
+the printf project from 42!
