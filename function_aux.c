@@ -6,23 +6,22 @@
 /*   By: gvon-ah- <gvon-ah-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 18:32:12 by gvon-ah-          #+#    #+#             */
-/*   Updated: 2024/11/16 19:54:22 by gvon-ah-         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:04:14 by gvon-ah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	aux_putbs(unsigned long int num, char *bs, int tt)
+int	aux_putbs(long num, char *bs, int tt)
 {
-	int			i;
-	char		c;
+	size_t	i;
+	char	c;
 
 	i = ft_strlen(bs);
 	if ((num / i) > 0)
 	{
 		tt = aux_putbs(num / i, bs, tt);
 		tt = aux_putbs(num % i, bs, tt);
-
 	}
 	else
 	{
@@ -40,8 +39,8 @@ int	aux_putpt(unsigned long int num, char *bs, int tt)
 	i = ft_strlen(bs);
 	if ((num / i) > 0)
 	{
-		tt = ft_putpt(num / i, bs, tt);
-		tt = ft_putpt(num % i, bs, tt);
+		tt = aux_putpt(num / i, bs, tt);
+		tt = aux_putpt(num % i, bs, tt);
 	}
 	else
 	{
@@ -93,4 +92,10 @@ int	aux_putunbr(unsigned int num, int tt)
 		tt += write(1, &c, 1);
 	}
 	return (tt);
+}
+
+int	ft_putchar(char c)
+{
+	write(1, &c, 1);
+	return (1);
 }

@@ -6,7 +6,7 @@
 #    By: gvon-ah- <gvon-ah-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/29 14:21:25 by gvon-ah-          #+#    #+#              #
-#    Updated: 2024/11/07 13:47:52 by gvon-ah-         ###   ########.fr        #
+#    Updated: 2024/11/18 14:17:46 by gvon-ah-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS = ft_atoi.c ft_bzero.c ft_calloc.c ft_isalnum.c ft_isalpha.c ft_isascii.c \
 LST = ft_lstsize.c ft_lstadd_front.c ft_lstlast.c ft_lstnew.c ft_lstadd_back.c \
 	  ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-OBJS = $(SRCS:%.c=%.o)
+OBJS = $(SRCS:%.c=%.o) $(LST:.c=.o) 
 
 NAME = libft.a
 
@@ -34,8 +34,6 @@ CFLAGS = -Wall -Wextra -Werror
 
 RM = rm -f	
 
-BONUS_OBJS = $(LST:.c=.o) $(SRCS:%.c=%.o)
-
 all: $(NAME) 
 
 %.o: %.c
@@ -44,12 +42,8 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@$(COMPRESS) $(NAME) $(OBJS)
 
-bonus: $(BONUS_OBJS) $(NAME)
-	@$(COMPRESS) $(NAME) $(BONUS_OBJS)
-	@touch bonus
-
 clean:
-	@$(RM) $(OBJS) $(BONUS_OBJS) bonus
+	@$(RM) $(OBJS)
 
 fclean: clean
 	@$(RM) $(NAME)
