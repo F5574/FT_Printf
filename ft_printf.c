@@ -6,7 +6,7 @@
 /*   By: gvon-ah- <gvon-ah-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/16 16:34:59 by gvon-ah-          #+#    #+#             */
-/*   Updated: 2024/11/18 17:03:46 by gvon-ah-         ###   ########.fr       */
+/*   Updated: 2024/11/19 12:58:17 by gvon-ah-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,6 +120,8 @@ int	ft_printf(const	char *src, ...)
 // 	write(1,"\n", 1);
 // 	ft_printf("Percent sign: %%\n");
 // 	printf("Percent sign: %%\n");
+
+// 	ft_printf("%%%%%%%%");
 
 // 	return (0);
 // }
